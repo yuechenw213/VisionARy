@@ -1,0 +1,15 @@
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_0.txt 1163 0.931882917881012
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_1.txt 17 0.9070086479187012
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_2.txt 9 0.8441929817199707
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_3.txt 19 0.8049894571304321
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_4.txt 1163 0.6613296866416931
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_5.txt 16 0.6140996813774109
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_6.txt 41 0.6087691187858582
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_7.txt 8 0.59218829870224
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_8.txt 1163 0.5143361687660217
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_9.txt 9 0.456748902797699
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_10.txt 5 0.43556755781173706
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_11.txt 28 0.40462324023246765
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_12.txt 8 0.21963781118392944
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_13.txt 8 0.12825685739517212
+pred_mask/20230411_180938_AnyConv.com__SpatialMapping_14.txt 101 0.10029428452253342
