@@ -1,5 +1,5 @@
 import os, sys, argparse
-import visualize_labels_on_mesh as segmesh
+import visualize_label_on_mesh_strict as segmesh
 import zipfile
 import csv
 import scannet_200_labels
@@ -39,8 +39,14 @@ def segresult(pred_zip, mesh_file, output_folder):
 
         segmesh.visualize(pred_path, mesh_file, out_path)
 
-    os.rmdir(extract_to)
+    for root, dirs, files in os.walk(extract_to, topdown=False):
+        for name in files:
+            os.remove(os.path.join(root, name))
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
 
+    # Remove the folder itself
+    os.rmdir(extract_to)
 
 def main():
     segresult(opt.pred_zip, opt.mesh_file, opt.output_folder)
