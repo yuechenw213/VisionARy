@@ -30,11 +30,11 @@ sys.path.insert(0,parentdir)
 import util
 import util_3d
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--pred_file', required=True, help='path to predicted labels file as .txt evaluation format')
-parser.add_argument('--mesh_file', required=True, help='path to the *_vh_clean_2.ply mesh')
-parser.add_argument('--output_file', required=True, help='output .ply file')
-opt = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--pred_file', required=True, help='path to predicted labels file as .txt evaluation format')
+# parser.add_argument('--mesh_file', required=True, help='path to the *_vh_clean_2.ply mesh')
+# parser.add_argument('--output_file', required=True, help='output .ply file')
+# opt = parser.parse_args()
 
 new_vertex = []
 new_face = []
@@ -74,24 +74,16 @@ def visualize(pred_file, mesh_file, output_file):
             if vertex_id.intersection(faceset):
                 print(i, face)
                 faces_new.append(face)
-        # plydata['face'].remove(faces_to_remove)
-        # Create a new list of faces that excludes the faces to remove
-        # new_face_list = [face for face in plydata['face'] if face[0] not in faces_to_remove]
-        print(len(faces_new), '/', len(plydata['face']))
-        # Create a new PlyElement for the faces with the updated list
-        new_face_element = PlyElement.describe(np.array(faces_new), 'face')
-        plydata['face'].data = np.array(faces_new)#np.r_[plydata['face'].data, np.array(faces_new)]
-        print(len(faces_new), '/', len(plydata['face']))
-        # Replace the old 'face' element with the new one
-        # plydata.elements.remove('face')
-        # plydata.elements.append(new_face_element)
+
+        plydata['face'].data = np.array(faces_new)
+        print(len(faces_new), 'face')
 
     plydata.write(output_file)
 
 
-def main():
-    visualize(opt.pred_file, opt.mesh_file, opt.output_file)
-
-
-if __name__ == '__main__':
-    main()
+# def main():
+#     visualize(opt.pred_file, opt.mesh_file, opt.output_file)
+#
+#
+# if __name__ == '__main__':
+#     main()
