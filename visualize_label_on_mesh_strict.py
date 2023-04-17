@@ -33,7 +33,7 @@ import util_3d
 
 new_face = []
 
-def visualize(pred_file, mesh_file, output_file):
+def visualize(pred_file, mesh_file, output_file, label_color):
     if not output_file.endswith('.ply'):
         util.print_error('output file must be a .ply file')
     colors = util.create_color_palette()
@@ -62,6 +62,9 @@ def visualize(pred_file, mesh_file, output_file):
                 # print(color)
                 vertex_id.add(i)
                 vertex_dict[i] = index
+                plydata['vertex']['red'][i] = label_color[0]
+                plydata['vertex']['green'][i] = label_color[1]
+                plydata['vertex']['blue'][i] = label_color[2]
                 new_vertex.append(vertex)
                 index += 1
 

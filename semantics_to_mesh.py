@@ -37,7 +37,9 @@ def segresult(pred_zip, mesh_file, output_folder):
         label = dictionary[label_index]
         out_path = output_folder+"\\"+str(i)+"_"+label+'.ply'
 
-        segmesh.visualize(pred_path, mesh_file, out_path)
+        # segmesh.visualize(pred_path, mesh_file, out_path)
+        label_color = scannet_200_labels.SCANNET_COLOR_MAP_200[label_index]
+        segmesh.visualize(pred_path, mesh_file, out_path, label_color)
 
     for root, dirs, files in os.walk(extract_to, topdown=False):
         for name in files:

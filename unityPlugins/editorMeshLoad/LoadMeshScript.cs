@@ -39,13 +39,6 @@ public class LoadMeshScript : MonoBehaviour
             meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
             meshFilter.mesh = LoadPLYData(filePath);
         }
-        //string fileName = Path.GetFileNameWithoutExtension(filePath);
-        //GameObject newObject = new GameObject(fileName);
-        //MeshFilter meshFilter = newObject.AddComponent<MeshFilter>();
-        //MeshRenderer meshRenderer = newObject.AddComponent<MeshRenderer>();
-        //meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
-        //meshFilter.mesh = LoadPLYData(filePath);
-
     }
 
 
