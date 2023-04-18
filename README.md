@@ -10,8 +10,22 @@ VisionARy is an open-source toolkit designed to make 3D indoor segmentation tech
 git clone https://github.com/yuechenw213/VisionARy.git
 ```
 ### Get Your Developer Roadmap
+![image](./doc/roadmap.drawio.png)
 
-
+#### Prepare your data
+- If you already have 3D mesh data that you want to segment, make sure it is in .ply file format. If not, you will need to convert it to this format.
+- You can also obtain a spatial mesh from the Hololens web portal, which will be in .obj file format. To use this mesh for segmentation, you will need to convert it to .ply format. The Data Adaptor module can assist you in converting the data.
+- If the data is not still available, you can use the Spatial Mesh Collector module to collect spatial mesh data in real-time. To do this, deploy a Unity app with the provided package to the Hololens device, and set up the Python server provided in the module. The app will send the captured mesh data to the backend, where it will be saved as a .ply file.
+#### Perform 3D segmentation
+- To perform 3D segmentation, first determine what you want to segment from the data.
+- Geometric segmentation involves segmenting based on the geometry and topology of the 3D mesh. This approach is useful for segmenting space boundaries and other geometric features.
+- Semantic segmentation involves segmenting based on the labels or categories of objects in the 3D mesh. This approach is useful for segmenting specific types of objects (e.g. furniture) or features (e.g. windows, doors).
+- Follow the instructions provided in the module to perform the segmentation.
+#### Apply Segmentation Result to Your Application
+- The segmented result is provided in the form of multiple .ply files, each representing a segment of the 3D mesh.
+- If further data processing is needed, you can use the Python code and the plyfile library to access the features of the segmented data.
+- To apply segmentation to your AR application, modules are provided in the toolkit to load the segmented result into the Unity engine. The segmented data can be loaded as a mesh object or point cloud, depending on the specific needs of your application.
+The module also provides a batch loading function for loading multiple segments at once.
 ## Modules
 ### Spatial Mesh Collector
 ### Data Adaptor
