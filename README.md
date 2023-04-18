@@ -44,8 +44,26 @@ The Python server receives data from the Hololens client and saves it locally in
 ![image](./doc/import_package.png)
 - Then in the `Project` window, under `Asset > Scenes`, open the `MeshCollect.unity` scene.
 ![image](./doc/collectorscene.png)
+- In the `TCP client` game object, set the `Host IP address` to your python server IP.
+![image](./doc/tcpsetting.png)
+- Save the change, deploy the scene to your Hololens.
+##### In the Application:
+- You will see the following AR interface. Use `Connect to Server` button to connect to python server. When success, the button will turn green.
+![image](./doc/interface.png)
+- Use the headset to scan your environment. The `suspend` and `resume` button can control the update of spatial mesh.
+- When the immersive environment is well covered by mesh, use `send mesh` to save the mesh data to server.
+
 ### Data Adaptor
+
+The Data Adaptor converts 3D models in OBJ format to PLY format for segmentation.
+
+cr: This code is developed based on nabeel3133's file-converter-.obj-to-.ply repository, which can be found at https://github.com/nabeel3133/file-converter-.obj-to-.ply
+#### How to use
+```
+python ./DataAdaptor/convert.py --input [objfilename.obj] --output [plyfilename.ply]
+```
 ### Geometric Segmentation
+
 ### Semantic Segmentation
 
 ```commandline
