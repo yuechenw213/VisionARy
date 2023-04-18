@@ -28,6 +28,22 @@ git clone https://github.com/yuechenw213/VisionARy.git
 The module also provides a batch loading function for loading multiple segments at once.
 ## Modules
 ### Spatial Mesh Collector
+This module is designed to facilitate the collection of 3D mesh data from real-world environments. 
+The module provides runtime data collection Unity package and a local TCP server.
+#### Python Server
+The Python server receives data from the Hololens client and saves it locally in .ply format. It acts as a bridge between the client and backend processing tools, allowing for real-time data capture and processing.
+
+##### Setup:
+- In [./SpatialMeshCollector/server.py](./SpatialMeshCollector/server.py), set the `HOST` constant to your local ip address. Set the `output` constant to your designated filepath.
+- Run `./SpatialMeshCollector/server.py` to start receiving connections.
+- When the 3D spatial data is received and saved, the server will stop automatically.
+
+#### Unity Package
+##### Setup:
+- In a unity project, use `Assets > Import Package > Custom Package` to import the [VisionARy_MeshCollector.unitypackage](./SpatialMeshCollector/UnityExample/VisionARy_MeshCollector.unitypackage) for collecting and sending 3D spatial mesh.
+![image](./doc/import_package.png)
+- Then in the `Project` window, under `Asset > Scenes`, open the `MeshCollect.unity` scene.
+![image](./doc/collectorscene.png)
 ### Data Adaptor
 ### Geometric Segmentation
 ### Semantic Segmentation
