@@ -41,14 +41,18 @@ The Python server receives data from the Hololens client and saves it locally in
 #### Unity Package
 ##### Setup:
 - In a unity project, use `Assets > Import Package > Custom Package` to import the [VisionARy_MeshCollector.unitypackage](./SpatialMeshCollector/UnityExample/VisionARy_MeshCollector.unitypackage) for collecting and sending 3D spatial mesh.
+
 ![image](./doc/import_package.png)
 - Then in the `Project` window, under `Asset > Scenes`, open the `MeshCollect.unity` scene.
+
 ![image](./doc/collectorscene.png)
 - In the `TCP client` game object, set the `Host IP address` to your python server IP.
+
 ![image](./doc/tcpsetting.png)
 - Save the change, deploy the scene to your Hololens.
 ##### In the Application:
 - You will see the following AR interface. Use `Connect to Server` button to connect to python server. When success, the button will turn green.
+
 ![image](./doc/interface.png)
 - Use the headset to scan your environment. The `suspend` and `resume` button can control the update of spatial mesh.
 - When the immersive environment is well covered by mesh, use `send mesh` to save the mesh data to server.
@@ -95,6 +99,22 @@ python .\SemanticSegment\SegmentationMap\visualize_labels_on_mesh.py --pred_file
 ```
 ### Segmented Mesh Generator
 
+This module helps you load segmented data into the Unity development platform with just one click.
+#### How to use:
+```commandline
+cp .\UnityPlugins\editorMeshLoad\. [your_project\Assets\Scripts\]
+```
+Then add the script to any gameobject.
+
+![image](./doc/loadmesh.png)
+
+You can put the path to single .ply file or a folder containing multiple files to the corresponding box, and click the button to load it in the scene.
 ### Point Cloud Generator
 
+The usage of point cloud generator is similar to mesh generator
 
+```commandline
+cp .\UnityPlugins\editorPointCloudLoad\. [your_project\Assets\Scripts\]
+```
+
+![image](./doc/loadpointcloud.png)
