@@ -59,28 +59,40 @@ The Data Adaptor converts 3D models in OBJ format to PLY format for segmentation
 
 cr: This code is developed based on nabeel3133's file-converter-.obj-to-.ply repository, which can be found at https://github.com/nabeel3133/file-converter-.obj-to-.ply
 #### How to use
-```
+```commandline
 python ./DataAdaptor/convert.py --input [objfilename.obj] --output [plyfilename.ply]
 ```
 ### Geometric Segmentation
 
+One sample task that can be performed using the Geometric Segmentation module is the segmentation of the ceiling and floor from 3D mesh data. By using algorithms to identify the horizontal surfaces in the mesh, the module can isolate the ceiling and floor segments and generate separate .ply files.
+### How to use
+```commandline
+python ./GeometricSegment/Geometric.py --mesh_file [yourmesh.ply] --threshold [threshold] --output_file [plyfilename.ply]
+```
 ### Semantic Segmentation
 
+The Semantic Segmentation module is designed to enable segmentation of 3D mesh data based on semantic labels or categories. This module utilizes a Mask3D(https://github.com/JonasSchult/Mask3D) model and the [ScanNet200](https://kaldir.vc.in.tum.de/scannet_benchmark/) dataset to perform segmentation.
+#### How to use
+By making HTTP requests to the Mask3D demo backend(https://francisengelmann.github.io/mask3d/), the Semantic Segmentation module obtains predictions of vertex of indoor data from the Mask3D server in single command.
+
 ```commandline
-python .\segment_via_HTTP.py --mesh_file=D:/thesis/ac
-cessability/test_docs/spatialMappingWithRGB.ply --output_folder=D:/thesis/accessability/
-test_docs/output_folder/
+python .\SemanticSegment\segment_via_HTTP.py --mesh_file [your_mesh.ply] --output_folder [output_folder]
 ```
+This command will obtain the prediction maps in plain text format. The following command can then be used to map the prediction back to the original mesh.
+
+- for getting all labeled instances from the result
 ```commandline
-python .\semantics_to_mesh.py --pred_zip .\20230414_192339_room.zip --mesh_file .\test_docs\spatialMappingWithRGB.ply --output_folder .\test_docs\out
+python .\SemanticSegment\SegmentationMap\semantics_to_mesh.py --pred_zip [filename.zip] --mesh_file [your_mesh.ply] --output_folder [output_folder]
 put_folder
 ```
-
+- for getting single instance of your choice
 ```commandline
-python .\visualize_labels_on_mesh.py --pred_file .\test_docs\20230414_192339_room\pred_mask\20230414_192339_room_2.txt --mesh_file .\test_docs\spatia
-lMappingWithRGB.ply --output_file .\test_docs\output2.ply
+python .\SemanticSegment\SegmentationMap\visualize_labels_on_mesh.py --pred_file [predict.txt] --mesh_file .[your_mesh.ply] --output_file [output.ply]
 ```
-
+or
+```commandline
+python .\SemanticSegment\SegmentationMap\visualize_labels_on_mesh.py --pred_file [predict.txt] --mesh_file .[your_mesh.ply] --output_file [output.ply]
+```
 ### Segmented Mesh Generator
 
 ### Point Cloud Generator
