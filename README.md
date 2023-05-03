@@ -10,7 +10,7 @@ VisionARy is an open-source toolkit designed to make 3D indoor segmentation tech
 git clone https://github.com/yuechenw213/VisionARy.git
 ```
 ### Get Your Developer Roadmap
-![image](./doc/roadmap.drawio.png)
+![image](./doc/roadmap2.drawio.png)
 
 #### Prepare your data
 - If you already have 3D mesh data that you want to segment, make sure it is in .ply file format. If not, you will need to convert it to this format.
